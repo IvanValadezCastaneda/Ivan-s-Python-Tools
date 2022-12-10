@@ -9,9 +9,9 @@ directory = input("Enter directory")
 # Get a list of all .xml files in the directory
 xml_files = [f for f in os.listdir(directory) if f.endswith(".xml")]
 
-# Print the names of all .xml files that end with "DETAILED.xml"
+# Print the names of all .xml files that end with  desired word "desiredword.xml"
 for xml_file in xml_files:
-  if xml_file.endswith("DETAILED.xml"):
+  if xml_file.endswith(".xml"):
     print(xml_file)
     DETAILEDFILES.append(xml_file)
 #print (DETAILEDFILES)
@@ -23,16 +23,10 @@ xml_file = input(" Ingresa el archivo ")
 properties = """
 <properties>
   <prop name="Name">
-   <prop name="es_MX.utf8" />
   </prop>
-  <prop name="Size">1900 788</prop>
-  <prop name="BackColor">ISA_11_BackgroundGrey</prop>
-  <prop name="RefPoint">-1 -1</prop>
-  <prop name="InitAndTermRef">True</prop>
-  <prop name="SendClick">False</prop>
+  <prop name="Size"></prop>
+  <prop name="BackColor"></prop>
   <prop name="RefFileName" />
-  <prop name="DPI">96</prop>
-  <prop name="PDPI">141.5847518580676</prop>
   <prop name="layoutType">None</prop>
  </properties>
 """
