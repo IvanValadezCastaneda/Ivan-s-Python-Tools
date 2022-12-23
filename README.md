@@ -1,4 +1,5 @@
-This is a Set of Python Tools that I developed (with more to come) some of them for fun and others for work use
+This is a Set of Python Tools that I developed (with more to come) some of them for fun and others for work use.
+
 Feel free to use them as you wish or to modify them.
 1. Automatic Raffle Maker.
   The purpose of it is to make Raffles in an automatic and random manner without repetition and for many participants as you want
