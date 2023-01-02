@@ -1,7 +1,12 @@
 import csv
-import svgwrite
 import os
-
+# Try to import svgwrite. If it is not installed, install it using pip
+try:
+  import svgwrite
+except ImportError:
+  import pip
+  pip.main(['install', 'svgwrite'])
+  import svgwrite
 
 input_filename = input("Enter the location of the input CSV file: ")
 
