@@ -27,17 +27,15 @@ properties = """
  </properties>
 """
 
-# Get the input CSV file location from the user
+
 input_filename = input("Enter the location of the input CSV file: ")
 
-# Get the output directory location from the user
 output_dir = input("Enter the location where the XML files should be created: ")
 
-# Create the output directory if it does not exist
 if not os.path.exists(output_dir):
   os.makedirs(output_dir)
 
-# Initialize a counter for the number of XML files created
+
 num_files_created = 0
 
 # Open the input CSV file
@@ -47,13 +45,11 @@ with open(input_filename, 'r') as input_file:
   # Iterate over the rows in the CSV
   for row in csv_reader:
 
-    # Get the title from the first column
+
     title = row[0]
 
-    # Create the XML file with the specified wrapper
     xml_file = f"<?xml version='1.0' encoding='UTF-8'?><panel version='14'>{properties}</panel>"
 
-    # Create the XML file with the title as the filename
     filename = os.path.join(output_dir, title + '.xml')
     with open(filename, 'w') as output_file:
       output_file.write(xml_file)

@@ -29,11 +29,10 @@ with open(input_filename, 'r') as input_file:
 
     title = row[0]
 
-    # Create a new SVG file with the title as the filename
+
     filename = os.path.join(output_dir, title + '.svg')
     dwg = svgwrite.Drawing(filename=filename)
 
-    # Add the title as text to the SVG file
     dwg.add(dwg.text(title, insert=(10, 20)))
 
     # Save the SVG file
