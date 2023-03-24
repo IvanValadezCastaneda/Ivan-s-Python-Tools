@@ -13,7 +13,7 @@ properties = """
   <prop name="Name">
    <prop name="es_MX.utf8" />
   </prop>
-  <prop name="Size">250 250</prop>
+  <prop name="Size">2085 796</prop>
   <prop name="BackColor">ISA_11_BackgroundGrey</prop>
  </properties>
 """
@@ -23,7 +23,7 @@ modified_files = 0
 
 for xml_file in xml_files:
   # Check if the file ends with "SYM.xml"
-  if xml_file.endswith("SISMO_NAVIGATION_SYM.xml"):
+  if xml_file.endswith("DETAILED.xml"):
     tree = ET.parse(os.path.join(directory, xml_file))
     root = tree.getroot()
 
