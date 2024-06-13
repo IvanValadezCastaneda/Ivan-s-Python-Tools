@@ -2,7 +2,7 @@ from pymodbus.client import ModbusTcpClient
 import struct
 
 # Ensure you're using the correct port and timeout
-client = ModbusTcpClient("192.168.0.10", port=502, timeout=20)
+client = ModbusTcpClient("client", port=502, timeout=20)
 
 if client.connect():
     response = client.read_holding_registers(143,2)

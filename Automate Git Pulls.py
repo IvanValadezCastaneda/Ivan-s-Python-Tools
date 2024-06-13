@@ -7,7 +7,7 @@ git_path = r'C:\Program Files\Git\bin\git.exe'
 dirs_to_update = [
     #r'C:\path\to\first\directory',
     #r'C:\path\to\second\directory'
-    r'C:\SimpleNodeJsBackend\SimpleNodeJsBackend'
+    r'path'
 ]
 
 # Loop through each directory and update it
