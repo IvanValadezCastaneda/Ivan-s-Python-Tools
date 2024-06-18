@@ -1,41 +1,38 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
+# Example segments with provided points
+segment_1 = [(14775, 1789), (14455, 1790), (14229, 1760), (13912, 1760), (13551, 1714), (13385, 1790), (13068, 1775), (12782, 1729), (12616, 1729), (12405, 1745), (12270, 1745), (12089, 1745), (11893, 1745), (11561, 1760), (11185, 1745), (10778, 1745), (10326, 1729), (9874, 1745), (9572, 1745), (9271, 1745), (9045, 1745), (8849, 1745), (8442, 1760), (8171, 1775), (7839, 1760), (7477, 1760), (7055, 1760), (6845, 1760), (6603, 1760), (6332, 1745), (6106, 1745), (5910, 1745), (5669, 1745), (5473, 1745), (5217, 1745), (4825, 1790), (4494, 1790), (4087, 1790), (3831, 1790), (3333, 1714), (2926, 1775), (2625, 1790), (2429, 1790), (1902, 1790), (1736, 1820), (1600, 1880), (1389, 2091), (1239, 2121), (877, 2227), (530, 2061), (259, 1805), (169, 1413), (153, 961), (364, 464), (696, 162), (1359, 253), (1902, 644), (2158, 629), (2761, 629), (3017, 614), (3544, 539), (3891, 584), (4373, 599), (4810, 599), (5066, 614), (5503, 599), (5759, 599), (5955, 629), (6197, 614), (6649, 614), (6694, 614), (7101, 599), (7327, 599), (7508, 599), (7643, 599), (7990, 599), (8141, 584), (8593, 569), (8773, 569), (8894, 569),(9391, 569), (9678, 584), (9949, 584), (10476, 584), (10748, 584), (11049, 599),(11275, 599), (11365, 599), (11576, 599), (11893, 569), (12451, 599), (12481, 614), (12556, 614), (13038, 614), (13430, 599), (13897, 554), (14184, 554), (14500, 554), (14666, 554),(14832, 554)]
+segment_2 = [(892, 4683), (1028, 4683), (1223, 4653), (1389, 4623), (1751, 4623), (2339, 4563), (2550, 4578), (3755, 4623), (3800, 4608), (3966, 4608), (4328, 4623), (4810, 4668), (4946, 4668), (5518, 4608), (5594, 4608), (6166, 4638), (6423, 4608), (6875, 4593), (7342, 4563), (7372, 4563), (7749, 4623), (7764, 4623), (8502, 4668), (8502, 4668), (8849, 4668), (8849, 4668), (9271, 4668), (9617, 4638), (9632, 4638), (10175, 4623), (10326, 4608), (10597, 4608), (10823, 4638), (11139, 4638), (11275, 4638), (11757, 4638), (12059, 4638), (12616, 4608), (13189, 4623), (13475, 4623), (13973, 4593), (14199, 4593), (14379, 4593), (14575, 4608), (14636, 4608), (14545, 5934), (14229, 5934), (13988, 5934), (13656, 5934), (13310, 5934), (12978, 5994), (12918, 5994), (12812, 5994), (12496, 5919), (11652, 5919), (11185, 5889), (10702, 5889), (10642, 5919), (10160, 5994), (9437, 5979), (9437, 5979), (9271, 5979), (8397, 5934), (8201, 5949), (7945, 5964), (7221, 5964), (6814, 5964), (6423, 5919), (5970, 5994), (5970, 5994), (5880, 5994), (5714, 5994), (5353, 6024), (5338, 6009), (5096, 6009), (4900, 6009), (4177, 5994), (3981, 5994), (3604, 6055), (3198, 5994), (2866, 5994), (2640, 5979), (2369, 5979), (2173, 5979), (1856, 6039), (1781, 6055), (1419, 5994), (1254, 5994), (982, 5994), (786, 6039)]
 
-segment_1 = [(x1, y1), (x2, y2), ...]
-segment_2 = [(x3, y3), (x4, y4), ...]
-
+# Function to fit a linear equation to each segment
 def fit_linear_segment(points):
     x = np.array([p[0] for p in points])
     y = np.array([p[1] for p in points])
     coefficients = np.polyfit(x, y, 1)  # Linear fit (degree 1)
-    return np.poly1d(coefficients)
+    return np.poly1d(coefficients), x, y
 
+def fit_linear_segment_return(points):
+    x = np.array([p[0] for p in points])
+    y = np.array([p[1] for p in points])
+    coefficients = np.polyfit(x, y, 1)  # Linear fit (degree 1)
+    return coefficients
 
-linear_eq_1 = fit_linear_segment(segment_1)
-linear_eq_2 = fit_linear_segment(segment_2)
-# Add more linear equations as needed
+# Fit linear equations to each segment
+linear_eq_1, x1, y1 = fit_linear_segment(segment_1)
+linear_eq_2, x2, y2 = fit_linear_segment(segment_2)
+coeffs1 = fit_linear_segment(segment_1)
+coeffs2 = fit_linear_segment(segment_2)
 
-
-def GPStoImage(Latitude, Longitude):
-    if condition_for_segment_1:  
-        x_img = ...  
-        y_img = linear_eq_1(x_img)
-    elif condition_for_segment_2:  
-        x_img = ... 
-        y_img = linear_eq_2(x_img)
-
-    adjusted_x = x_img + marginX
-    adjusted_y = y_img + marginY
-
-    FinalPosition = [adjusted_x, adjusted_y]
-    return FinalPosition
-
-plt.scatter(x, y, color='red')
-plt.plot(x, linear_eq_1(x), color='blue')
-plt.plot(x, linear_eq_2(x), color='green')
+# Plot to visualize
+plt.scatter(x1, y1, color='red')
+plt.scatter(x2, y2, color='green')
+plt.plot(x1, linear_eq_1(x1), color='blue')
+plt.plot(x2, linear_eq_2(x2), color='orange')
 plt.xlabel('x (pixel)')
 plt.ylabel('y (pixel)')
 plt.title('Piecewise Linear Fit')
 plt.gca().invert_yaxis()
 plt.show()
+print("Segment 1 coefficients:", coeffs1)
+print("Segment 2 coefficients:", coeffs2)
